@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseWPF>False</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <COMReference Include="PowerPoint">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>3</VersionMajor>
+      <Guid>44720440-94bf-4940-926d-4f38fecf2a48</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\User\" />
+    <Folder Include="Interfaces\Request\" />
+    <Folder Include="Interfaces\Response\" />
+    <Folder Include="Interfaces\Schedule\" />
+    <Folder Include="Interfaces\Ticket\" />
+    <Folder Include="Models\Ticket\" />
+    <Folder Include="Models\Schedule\" />
+    <Folder Include="Models\Request\" />
+    <Folder Include="Models\Response\" />
+    <Folder Include="Models\Train\" />
+    <Folder Include="Models\Itinerary\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="NLog" Version="5.2.8" />
+  </ItemGroup>
+</Project>
