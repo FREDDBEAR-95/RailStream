@@ -22,5 +22,24 @@ namespace RailStream_Server.Services
         {
 
         }
+
+        // Функция добавления билета
+        public void RegisterTicket() 
+        {
+
+        }
+
+        // Функция удаления билета
+        public void RemoveTicket() 
+        { 
+
+        }
+
+        // Функция изменения билета
+        public void UpdateTicket() 
+        { 
+
+        }
+
     }
 }

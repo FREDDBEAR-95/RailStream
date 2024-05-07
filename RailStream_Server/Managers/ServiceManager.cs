@@ -32,10 +32,8 @@ namespace RailStream_Server_Backend.Managers
             foreach (var service in Services)
             {
                 Thread thread = new Thread(service.Start);
-                thread.Name = $"Thread - {service.Name} - launched!";
                 Threads.Add(thread);
                 thread.Start();
-                Console.WriteLine(thread.Name);
             }
         }
 

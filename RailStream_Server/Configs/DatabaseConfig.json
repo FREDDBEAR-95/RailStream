@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=DESKTOP-LLIK83M\\SQLEXPRESS04;Database=RailStream;Trusted_Connection=True;TrustServerCertificate=True;"
+  }
+}

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RailStream_Server.Models;
 
 namespace RailStream_Server.Services
 {
@@ -19,6 +20,24 @@ namespace RailStream_Server.Services
         }
 
         public void Stop()
+        {
+
+        }
+
+        // Функция добавления уведомления
+        public void AddNotification(User user)
+        {
+
+        }
+
+        // Функция изменения уведомления
+        public void ChangeNotification(User user)
+        {
+
+        }
+
+        // Функция удаления уведомления
+        public void RemoveNotification(User user)
         {
 
         }

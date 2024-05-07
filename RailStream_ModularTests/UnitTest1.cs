@@ -1,3 +1,5 @@
+using Microsoft.Testing.Platform.Configurations;
+
 namespace RailStream_ModularTests
 {
     [TestClass]

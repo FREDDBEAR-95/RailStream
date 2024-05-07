@@ -1,4 +1,4 @@
-﻿using RailStream_Server.Models;
+﻿using RailStream_Server.Models.Other;
 using RailStream_Server.Services;
 using RailStream_Server_Backend.Interfaces.Service;
 using RailStream_Server_Backend.Managers;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server
 {
-    public class Server
+    internal class Server
     {
         private TcpListener _server;
         public ServiceManager serviceManager = new ServiceManager(new List<IServiceBase> { new UserManagerService() });
@@ -27,41 +27,41 @@ namespace RailStream_Server
             _server = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
         }
 
-        public Message Open()
+        public ServerMessage Open()
         {
             if (ServerStatus)
-                return new Message(true, "The server is already up and running!");
+                return new ServerMessage(true, "The server is already up and running!");
             
             try
             {
                 _server.Start();
                 serviceManager.StartServices();
                 ServerStatus = true;
-                return new Message(true, "Server successfully launched!");
+                return new ServerMessage(true, "Server successfully launched!");
             }
 
             catch (Exception ex)
             {
-                return new Message(false, $"Failed to start the server! Error description: {ex.Message}");
+                return new ServerMessage(false, $"Failed to start the server! Error description: {ex.Message}");
             }
         }
 
-        public Message Close() 
+        public ServerMessage Close() 
         {
             if (!ServerStatus)
-                return new Message(true, "The server has already stopped!");
+                return new ServerMessage(true, "The server has already stopped!");
 
             try
             {
                 _server.Stop();
                 serviceManager.StopServices();
                 ServerStatus = false;
-                return new Message(true, "The server has been successfully stopped!");
+                return new ServerMessage(true, "The server has been successfully stopped!");
             }
 
             catch (Exception ex)
             {
-                return new Message(false, $"Failed to disconnect the server. Error description: {ex.Message}");
+                return new ServerMessage(false, $"Failed to disconnect the server. Error description: {ex.Message}");
             }
         }
     }
