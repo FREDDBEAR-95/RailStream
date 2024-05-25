@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RailStream_Server"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="ChooseTicket" Height="450" Width="800">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Введите данные о маршруте"></TextBlock>
+        <Grid Grid.Row="1" Name="ChooseDataGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Name="FromTextBlock" Text="Откуда" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Name="DateTextBlock" Text="Дата отправления" />
+            <TextBlock Grid.Row="0" Grid.Column="2" Name="ToTextBlock" Text="Куда" />
+            <TextBox Grid.Row="0" Grid.Column="1" Name="FromTextBox" />
+            <TextBox Grid.Row="0" Grid.Column="3" Name="ToTextBox" />
+            <DatePicker Grid.Row="1" Grid.Column="1" Name="DateChooseBox" />
+            <Button Grid.Row="1" Grid.Column="3" Name="SubmitDataChooseButton" Content="Найти поезда"/>
+        </Grid>
+        <ListBox Grid.Row="2" Grid.Column="0" Name="RouteListBox">
+        </ListBox>
     </Grid>
 </Window>

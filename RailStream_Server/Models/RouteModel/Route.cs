@@ -26,5 +26,10 @@ namespace RailStream_Server.Models
         public DateTime ArrivalTime { get; set; }
         public decimal Distance { get; set; }
         public DateTime TimeWays { get; set; }
+
+        public override string ToString()
+        {
+            return $"{RouteId}, {RouteName}, {RouteStatusId}, {DeparturePlace}, {Destination}, {DepartureDate.Date}, {DepartureTime.TimeOfDay}, {Distance}, {TimeWays.TimeOfDay}";
+        }
     }
 }
