@@ -31,7 +31,8 @@ namespace RailStream_Server.Services.Filters
                         return null;
                 }
                 return ticket;
-            } catch
+            }
+            catch
             {
                 return null;
             }
@@ -51,7 +52,8 @@ namespace RailStream_Server.Services.Filters
                     if (dbManager.Tickets.Find(ticketId) == null) return null;
                 }
                 return ticketId;
-            } catch
+            }
+            catch
             {
                 return null;
             }

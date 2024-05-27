@@ -18,42 +18,42 @@ namespace RailStream_Server
     {
         public static void Main(string[] args)
         {
-            TicketManagerService ticketManagerService = new TicketManagerService();
+            //TicketManagerService ticketManagerService = new TicketManagerService();
 
-            using (var databaseManager = new DatabaseManager())
-            {
-                if (databaseManager.Tickets.Count() == 0) Console.WriteLine($"Сисок билетов пуст");
-                foreach ( var ticket in databaseManager.Tickets)
-                {
-                    Console.WriteLine($"{ticket.TicketId}, {ticket.UserId}, {ticket.TrainId}, {ticket.PlaceNumber}");
-                }
-
-
-                Ticket newTicket = new Ticket() {
-                    TicketId = 2,
-                    UserId = 1,
-                    RouteId = 10,
-                    TrainId = 1,
-                    PlaceNumber = 2
-                };
-                //ClientRequest clientRequest = new ClientRequest(new Dictionary<string,string>(), JsonSerializer.Serialize(newTicket));
-                //ServerResponse serverResponse = ticketManagerService.RegisterTicket(clientRequest);
+            //using (var databaseManager = new DatabaseManager())
+            //{
+            //    if (databaseManager.Tickets.Count() == 0) Console.WriteLine($"Сисок билетов пуст");
+            //    foreach ( var ticket in databaseManager.Tickets)
+            //    {
+            //        Console.WriteLine($"{ticket.TicketId}, {ticket.UserId}, {ticket.TrainId}, {ticket.PlaceNumber}");
+            //    }
 
 
-                //ClientRequest clientRequest = new ClientRequest(new Dictionary<string, string>(), JsonSerializer.Serialize(1));
-                //ServerResponse serverResponse = ticketManagerService.RemoveTicket(clientRequest);
+            //    Ticket newTicket = new Ticket() {
+            //        TicketId = 2,
+            //        UserId = 1,
+            //        RouteId = 10,
+            //        TrainId = 1,
+            //        PlaceNumber = 2
+            //    };
+            //    //ClientRequest clientRequest = new ClientRequest(new Dictionary<string,string>(), JsonSerializer.Serialize(newTicket));
+            //    //ServerResponse serverResponse = ticketManagerService.RegisterTicket(clientRequest);
 
-                ClientRequest clientRequest = new ClientRequest(new Dictionary<string, string>(), JsonSerializer.Serialize(newTicket));
-                ServerResponse serverResponse = ticketManagerService.UpdateTicket(clientRequest);
 
-                Console.WriteLine(JsonSerializer.Deserialize<Dictionary<string, string>>(serverResponse.Content)["Message"]);
+            //    //ClientRequest clientRequest = new ClientRequest(new Dictionary<string, string>(), JsonSerializer.Serialize(1));
+            //    //ServerResponse serverResponse = ticketManagerService.RemoveTicket(clientRequest);
 
-                if (databaseManager.Tickets.Count() == 0) Console.WriteLine($"Сисок билетов пуст");
-                foreach (var ticket in databaseManager.Tickets)
-                {
-                    Console.WriteLine($"{ticket.TicketId}, {ticket.UserId}, {ticket.TrainId}, {ticket.PlaceNumber}");
-                }
-            }
+            //    ClientRequest clientRequest = new ClientRequest(new Dictionary<string, string>(), JsonSerializer.Serialize(newTicket));
+            //    ServerResponse serverResponse = ticketManagerService.UpdateTicket(clientRequest);
+
+            //    Console.WriteLine(JsonSerializer.Deserialize<Dictionary<string, string>>(serverResponse.Content)["Message"]);
+
+            //    if (databaseManager.Tickets.Count() == 0) Console.WriteLine($"Сисок билетов пуст");
+            //    foreach (var ticket in databaseManager.Tickets)
+            //    {
+            //        Console.WriteLine($"{ticket.TicketId}, {ticket.UserId}, {ticket.TrainId}, {ticket.PlaceNumber}");
+            //    }
+            //}
         }
     }
 }

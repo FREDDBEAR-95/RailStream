@@ -1,0 +1,36 @@
+﻿<Page x:Class="RailStream_Server.UI.ChooseTrainAndSeat"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RailStream_Server.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ChooseTrainAndSeat">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Выберите поезд" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Выберите вагон" />
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="Выберите место" />
+
+        <ListBox Grid.Row="1" Grid.Column="0" Name="TrainChooseList">
+            
+        </ListBox>
+        <ListBox Grid.Row="1" Grid.Column="1" Name="WagonChooseList">
+            
+        </ListBox>
+        <ListBox Grid.Row="1" Grid.Column="2" Name="SeatChooseList">
+            
+        </ListBox>
+    </Grid>
+</Page>

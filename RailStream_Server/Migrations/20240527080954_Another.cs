@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RailStream_Server.Migrations
 {
     /// <inheritdoc />
-    public partial class MAgic : Migration
+    public partial class Another : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -160,35 +160,6 @@ namespace RailStream_Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Trains",
-                columns: table => new
-                {
-                    TrainId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TrainTypeId = table.Column<int>(type: "int", nullable: false),
-                    TrainStatusId = table.Column<int>(type: "int", nullable: false),
-                    TrainBrand = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ReleaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Trains", x => x.TrainId);
-                    table.ForeignKey(
-                        name: "FK_Trains_TrainStatus_TrainStatusId",
-                        column: x => x.TrainStatusId,
-                        principalTable: "TrainStatus",
-                        principalColumn: "TrainStatusId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Trains_TrainType_TrainTypeId",
-                        column: x => x.TrainTypeId,
-                        principalTable: "TrainType",
-                        principalColumn: "TrainTypeId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Authorizations",
                 columns: table => new
                 {
@@ -247,25 +218,54 @@ namespace RailStream_Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Trains",
+                columns: table => new
+                {
+                    TrainId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TrainTypeId = table.Column<int>(type: "int", nullable: false),
+                    TrainStatusId = table.Column<int>(type: "int", nullable: false),
+                    RouteId = table.Column<int>(type: "int", nullable: false),
+                    TrainBrand = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReleaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Trains", x => x.TrainId);
+                    table.ForeignKey(
+                        name: "FK_Trains_Routes_RouteId",
+                        column: x => x.RouteId,
+                        principalTable: "Routes",
+                        principalColumn: "RouteId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Trains_TrainStatus_TrainStatusId",
+                        column: x => x.TrainStatusId,
+                        principalTable: "TrainStatus",
+                        principalColumn: "TrainStatusId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Trains_TrainType_TrainTypeId",
+                        column: x => x.TrainTypeId,
+                        principalTable: "TrainType",
+                        principalColumn: "TrainTypeId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Tickets",
                 columns: table => new
                 {
                     TicketId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    RouteId = table.Column<int>(type: "int", nullable: false),
                     TrainId = table.Column<int>(type: "int", nullable: false),
                     PlaceNumber = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tickets", x => x.TicketId);
-                    table.ForeignKey(
-                        name: "FK_Tickets_Routes_RouteId",
-                        column: x => x.RouteId,
-                        principalTable: "Routes",
-                        principalColumn: "RouteId",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Tickets_Trains_TrainId",
                         column: x => x.TrainId,
@@ -332,11 +332,6 @@ namespace RailStream_Server.Migrations
                 column: "RouteStatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_RouteId",
-                table: "Tickets",
-                column: "RouteId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Tickets_TrainId",
                 table: "Tickets",
                 column: "TrainId");
@@ -345,6 +340,11 @@ namespace RailStream_Server.Migrations
                 name: "IX_Tickets_UserId",
                 table: "Tickets",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Trains_RouteId",
+                table: "Trains",
+                column: "RouteId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Trains_TrainStatusId",
@@ -394,9 +394,6 @@ namespace RailStream_Server.Migrations
                 name: "NotificationStatus");
 
             migrationBuilder.DropTable(
-                name: "Routes");
-
-            migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
@@ -406,16 +403,19 @@ namespace RailStream_Server.Migrations
                 name: "WagonType");
 
             migrationBuilder.DropTable(
-                name: "RouteStatus");
+                name: "Roles");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Routes");
 
             migrationBuilder.DropTable(
                 name: "TrainStatus");
 
             migrationBuilder.DropTable(
                 name: "TrainType");
+
+            migrationBuilder.DropTable(
+                name: "RouteStatus");
         }
     }
 }

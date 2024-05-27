@@ -12,8 +12,8 @@ using RailStream_Server_Backend.Managers;
 namespace RailStream_Server.Migrations
 {
     [DbContext(typeof(DatabaseManager))]
-    [Migration("20240509155420_MAgic")]
-    partial class MAgic
+    [Migration("20240527080954_Another")]
+    partial class Another
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -157,9 +157,6 @@ namespace RailStream_Server.Migrations
                     b.Property<int>("PlaceNumber")
                         .HasColumnType("int");
 
-                    b.Property<int>("RouteId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TrainId")
                         .HasColumnType("int");
 
@@ -167,8 +164,6 @@ namespace RailStream_Server.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("TicketId");
-
-                    b.HasIndex("RouteId");
 
                     b.HasIndex("TrainId");
 
@@ -192,6 +187,9 @@ namespace RailStream_Server.Migrations
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("RouteId")
+                        .HasColumnType("int");
+
                     b.Property<string>("TrainBrand")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -203,6 +201,8 @@ namespace RailStream_Server.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("TrainId");
+
+                    b.HasIndex("RouteId");
 
                     b.HasIndex("TrainStatusId");
 
@@ -437,12 +437,6 @@ namespace RailStream_Server.Migrations
 
             modelBuilder.Entity("RailStream_Server.Models.Ticket", b =>
                 {
-                    b.HasOne("RailStream_Server.Models.Route", "Route")
-                        .WithMany()
-                        .HasForeignKey("RouteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RailStream_Server.Models.Train", "Train")
                         .WithMany()
                         .HasForeignKey("TrainId")
@@ -455,8 +449,6 @@ namespace RailStream_Server.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Route");
-
                     b.Navigation("Train");
 
                     b.Navigation("User");
@@ -464,6 +456,12 @@ namespace RailStream_Server.Migrations
 
             modelBuilder.Entity("RailStream_Server.Models.Train", b =>
                 {
+                    b.HasOne("RailStream_Server.Models.Route", "Route")
+                        .WithMany()
+                        .HasForeignKey("RouteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("RailStream_Server.Models.TrainStatus", "TrainStatus")
                         .WithMany()
                         .HasForeignKey("TrainStatusId")
@@ -475,6 +473,8 @@ namespace RailStream_Server.Migrations
                         .HasForeignKey("TrainTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Route");
 
                     b.Navigation("TrainStatus");
 

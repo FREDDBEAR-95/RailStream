@@ -31,7 +31,7 @@ namespace RailStream_Server.Services
         }
 
         // Функция добавления билета
-        public ServerResponse RegisterTicket(ClientRequest clientRequest) 
+        public ServerResponse RegisterTicket(ClientRequest clientRequest)
         {
             Dictionary<string, string> serverResponce = new Dictionary<string, string>();
 
@@ -43,13 +43,14 @@ namespace RailStream_Server.Services
                     serverResponce["Message"] = $"Ошибка покупки! Данные билета некорректны.";
                     return new ServerResponse(false, JsonSerializer.Serialize(serverResponce));
                 }
-                
+
                 using (DatabaseManager dbManager = new DatabaseManager())
                 {
                     dbManager.Tickets.Add(ticket);
                     dbManager.SaveChanges();
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 serverResponce["Message"] = $"Ошибка покупки! {ex.Message}, {ex.InnerException}";
                 return new ServerResponse(false, JsonSerializer.Serialize(serverResponce));
@@ -60,14 +61,14 @@ namespace RailStream_Server.Services
         }
 
         // Функция удаления билета
-        public ServerResponse RemoveTicket(ClientRequest clientRequest) 
+        public ServerResponse RemoveTicket(ClientRequest clientRequest)
         {
             Dictionary<string, string> serverResponce = new Dictionary<string, string>();
 
             try
             {
                 int? ticketId = Validator.TicketRemoveValidate(clientRequest);
-                if ( ticketId == null )
+                if (ticketId == null)
                 {
                     serverResponce["Message"] = $"Ошибка возврата билета! Данные билета некорректные.";
                     return new ServerResponse(false, JsonSerializer.Serialize(serverResponce));
@@ -80,7 +81,8 @@ namespace RailStream_Server.Services
                     dbManager.SaveChanges();
                 }
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 serverResponce["Message"] = $"Ошибка возврата билета! {ex.Message}";
                 return new ServerResponse(false, JsonSerializer.Serialize(serverResponce));
@@ -91,13 +93,13 @@ namespace RailStream_Server.Services
         }
 
         // Функция изменения билета
-        public ServerResponse UpdateTicket(ClientRequest clientRequest) 
+        public ServerResponse UpdateTicket(ClientRequest clientRequest)
         {
             Dictionary<string, string> serverResponce = new Dictionary<string, string>();
 
             try
             {
-                
+
                 Ticket? ticket = Validator.TicketUpdateValidate(clientRequest);
 
                 if (ticket == null)
@@ -111,7 +113,6 @@ namespace RailStream_Server.Services
                     Ticket updatedTicket = dbManager.Tickets.Where(t => t.TicketId == ticket.TicketId).FirstOrDefault();
                     updatedTicket.PlaceNumber = ticket.PlaceNumber;
                     updatedTicket.TrainId = ticket.TrainId;
-                    updatedTicket.RouteId = ticket.RouteId;
 
                     dbManager.Tickets.Update(updatedTicket);
                     dbManager.SaveChanges();

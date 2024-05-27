@@ -53,6 +53,7 @@ namespace RailStream_Server
                 grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(150) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(150) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(150) });
+                grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(150) });
 
                 grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(20) });
 
@@ -61,6 +62,9 @@ namespace RailStream_Server
                 TextBlock textBlockDepatureDate = new TextBlock() { Text = route.DepartureDate.ToShortDateString() };
                 TextBlock textBlockDepatureTime = new TextBlock() { Text = route.DepartureTime.ToShortTimeString() };
                 TextBlock textBlockArrivalTime = new TextBlock() { Text = route.ArrivalTime.ToShortTimeString() };
+
+                Button chooseButton = new Button() { Content = "Выбрать", Tag = $"{route.RouteId}" };
+                chooseButton.Click += ClickRouteChoose;
 
                 Grid.SetRow(textBlockDepaturePlace, 0);
                 Grid.SetColumn(textBlockDepaturePlace, 0);
@@ -72,15 +76,24 @@ namespace RailStream_Server
                 Grid.SetColumn(textBlockDepatureTime, 3);
                 Grid.SetRow(textBlockArrivalTime, 0);
                 Grid.SetColumn(textBlockArrivalTime, 4);
+                Grid.SetRow(chooseButton, 0);
+                Grid.SetColumn(chooseButton, 5);
 
                 grid.Children.Add(textBlockDepaturePlace);
                 grid.Children.Add(textBlockDestination);
                 grid.Children.Add(textBlockDepatureDate);
                 grid.Children.Add(textBlockDepatureTime);
                 grid.Children.Add(textBlockArrivalTime);
+                grid.Children.Add(chooseButton);
 
                 RouteListBox.Items.Add(grid);
             }
+        }
+
+        private void ClickRouteChoose(object sender, RoutedEventArgs e)
+        {
+            int routeId = (int)((Button)sender).Tag;
+            
         }
     }
 }

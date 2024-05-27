@@ -20,6 +20,9 @@ namespace RailStream_Server.Models
         public int TrainStatusId { get; set; }        // внешний ключ
         public TrainStatus? TrainStatus { get; set; } // навигационное свойство
         // ------------------------------------------------------
+        public int RouteId { get; set; }  // внешний ключ
+        public Route? Route { get; set; } // навигационное свойство
+        // ------------------------------------------------------
         public string TrainBrand { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string Location { get; set; }
