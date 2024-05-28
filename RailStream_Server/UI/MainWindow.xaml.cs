@@ -1,4 +1,5 @@
 ﻿using RailStream_Server.Models;
+using RailStream_Server.UI;
 using RailStream_Server_Backend.Managers;
 using System.Text;
 using System.Windows;
@@ -63,7 +64,7 @@ namespace RailStream_Server
                 TextBlock textBlockDepatureTime = new TextBlock() { Text = route.DepartureTime.ToShortTimeString() };
                 TextBlock textBlockArrivalTime = new TextBlock() { Text = route.ArrivalTime.ToShortTimeString() };
 
-                Button chooseButton = new Button() { Content = "Выбрать", Tag = $"{route.RouteId}" };
+                Button chooseButton = new Button() { Content = "Выбрать", Tag = route.RouteId };
                 chooseButton.Click += ClickRouteChoose;
 
                 Grid.SetRow(textBlockDepaturePlace, 0);
@@ -92,8 +93,9 @@ namespace RailStream_Server
 
         private void ClickRouteChoose(object sender, RoutedEventArgs e)
         {
-            int routeId = (int)((Button)sender).Tag;
-            
+            var routeId = (int)(((Button)sender).Tag);
+            ChooseWagonAndSeat chooseWagonAndSeatWindow = new ChooseWagonAndSeat(routeId);
+            chooseWagonAndSeatWindow.Show();
         }
     }
 }

@@ -1,0 +1,36 @@
+﻿<Window x:Class="RailStream_Server.UI.ChooseWagonAndSeat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RailStream_Server.UI"
+        mc:Ignorable="d"
+        Title="ChooseWagonAndSeat" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Выберите вагон"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Выберите место"/>
+
+        <ListBox Grid.Row="1" Grid.Column="0" Name="WagonList">
+            
+        </ListBox>
+        <ListBox Grid.Row="1" Grid.Column="1" Name="SeatList">
+            
+        </ListBox>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Вагон не выбран" Name="WagonTextBlock"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Место не выбрано" Name="SeatTextBlock"/>
+
+        <Button Grid.Row="2" Grid.Column="2" Content="Купить" Visibility="Visible" Name="BuyButton" Click="BuyButton_Click"/>
+    </Grid>
+</Window>

@@ -21,6 +21,7 @@ namespace RailStream_Server.Models
         public string Name { get; set; }
         public string Patronymic { get; set; }
         public DateTime BirthDate { get; set; }
+        public string PassportId { get; set; }
         public string Email { get; set; }
         public int PhoneNumber { get; set; }
         public string Password { get; set; }

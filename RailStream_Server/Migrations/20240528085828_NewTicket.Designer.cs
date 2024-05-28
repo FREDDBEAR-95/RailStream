@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RailStream_Server_Backend.Managers;
 
@@ -11,9 +12,11 @@ using RailStream_Server_Backend.Managers;
 namespace RailStream_Server.Migrations
 {
     [DbContext(typeof(DatabaseManager))]
-    partial class DatabaseManagerModelSnapshot : ModelSnapshot
+    [Migration("20240528085828_NewTicket")]
+    partial class NewTicket
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

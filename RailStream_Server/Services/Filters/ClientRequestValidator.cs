@@ -26,7 +26,7 @@ namespace RailStream_Server.Services.Filters
                 using (DatabaseManager databaseManager = new DatabaseManager())
                 {
                     // Проверяем наличие купленного билета на место в поезде и существует ли пользователь на которого мы хотим зарегестрировать билет
-                    if (databaseManager.Tickets.Where(tik => tik.TrainId == ticket.TrainId && tik.PlaceNumber == ticket.PlaceNumber).Count() > 0 ||
+                    if (databaseManager.Tickets.Where(tik => tik.RouteId == ticket.RouteId && tik.PlaceNumber == ticket.PlaceNumber && tik.WagonNumber == ticket.WagonNumber).Count() > 0 ||
                         databaseManager.Users.Where(user => user.UserId == ticket.UserId).Count() <= 0)
                         return null;
                 }
@@ -74,7 +74,7 @@ namespace RailStream_Server.Services.Filters
                     // существует ли билет с местом на которое мы хотим изменить
                     // существует ли пользователь на которого мы хотим изменить
                     if (databaseManager.Tickets.Where(t => t.TicketId == ticket.TicketId).Count() <= 0 ||
-                        databaseManager.Tickets.Where(tik => tik.TrainId == ticket.TrainId && tik.PlaceNumber == ticket.PlaceNumber).Count() > 0)
+                        databaseManager.Tickets.Where(tik => tik.RouteId == ticket.RouteId && tik.PlaceNumber == ticket.PlaceNumber).Count() > 0)
                         return null;
                 }
                 return ticket;

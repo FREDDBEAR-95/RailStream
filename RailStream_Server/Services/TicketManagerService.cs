@@ -30,7 +30,7 @@ namespace RailStream_Server.Services
 
         }
 
-        // Функция добавления билета
+        //Функция добавления билета
         public ServerResponse RegisterTicket(ClientRequest clientRequest)
         {
             Dictionary<string, string> serverResponce = new Dictionary<string, string>();
@@ -112,7 +112,7 @@ namespace RailStream_Server.Services
                 {
                     Ticket updatedTicket = dbManager.Tickets.Where(t => t.TicketId == ticket.TicketId).FirstOrDefault();
                     updatedTicket.PlaceNumber = ticket.PlaceNumber;
-                    updatedTicket.TrainId = ticket.TrainId;
+                    updatedTicket.RouteId = ticket.RouteId;
 
                     dbManager.Tickets.Update(updatedTicket);
                     dbManager.SaveChanges();

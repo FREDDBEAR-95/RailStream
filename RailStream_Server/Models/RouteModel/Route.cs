@@ -26,6 +26,10 @@ namespace RailStream_Server.Models
         public DateTime ArrivalTime { get; set; }
         public decimal Distance { get; set; }
         public DateTime TimeWays { get; set; }
+        // ------------------------------------------------------
+        public int TrainId { get; set; }  // внешний ключ
+        public Train? Train { get; set; } // навигационное свойство
+        // ------------------------------------------------------
 
         public override string ToString()
         {
