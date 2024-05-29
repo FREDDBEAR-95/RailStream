@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using RailStream_Server.Models;
 using RailStream_Server.Models.Other;
 using System.Text.Json;
+using RailStream_Server.Services;
 
 namespace RailStream_Server.UI
 {
@@ -23,13 +24,16 @@ namespace RailStream_Server.UI
     /// </summary>
     public partial class ChooseWagonAndSeat : Window
     {
+        private int UserId { get; set; }
         private int ChoosedRouteId { get; set; }
         private Wagon? ChoosedWagon { get; set; } = null;
         private int? ChoosedPlace { get; set; } = null;
-        public ChooseWagonAndSeat(int routeId)
+        private TicketManagerService ticketManagerService { get; set; } = new TicketManagerService();
+        public ChooseWagonAndSeat(int routeId, int userId)
         {
             InitializeComponent();
             ChoosedRouteId = routeId;
+            UserId = userId;
 
             using (DatabaseManager dbManager = new DatabaseManager())
             {
@@ -103,6 +107,7 @@ namespace RailStream_Server.UI
 
             Ticket ticket = new Ticket()
             {
+                UserId = UserId,
                 RouteId = ChoosedRouteId,
                 WagonNumber = ChoosedWagon.WagonNumber,
                 PlaceNumber = (int)ChoosedPlace
@@ -110,9 +115,15 @@ namespace RailStream_Server.UI
 
             ClientRequest clientRequest = new ClientRequest(new Dictionary<string, string>(), JsonSerializer.Serialize(ticket));
 
+            ServerResponse serverResponse = ticketManagerService.RegisterTicket(clientRequest);
 
-
-            MessageBox.Show("Вы успешно купили билет!", "Покупка совершена", MessageBoxButton.OK);
+            if (serverResponse.Status)
+            {
+                MessageBox.Show("Вы успешно купили билет!", "Покупка совершена.", MessageBoxButton.OK);
+                this.Close();
+            }
+            else
+                MessageBox.Show(serverResponse.Content, "Покупка не совершена.", MessageBoxButton.OK,MessageBoxImage.Error);
         }
     }
 }

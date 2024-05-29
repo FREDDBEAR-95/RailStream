@@ -19,11 +19,13 @@ namespace RailStream_Server
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int UserId { get; set; }
         public MainWindow()
         {
             InitializeComponent();
 
             SubmitDataChooseButton.Click += SubmitButtonClick;
+            UserId = 2;
         }
 
         private void SubmitButtonClick(object sender, RoutedEventArgs e)
@@ -94,7 +96,7 @@ namespace RailStream_Server
         private void ClickRouteChoose(object sender, RoutedEventArgs e)
         {
             var routeId = (int)(((Button)sender).Tag);
-            ChooseWagonAndSeat chooseWagonAndSeatWindow = new ChooseWagonAndSeat(routeId);
+            ChooseWagonAndSeat chooseWagonAndSeatWindow = new ChooseWagonAndSeat(routeId, UserId);
             chooseWagonAndSeatWindow.Show();
         }
     }
