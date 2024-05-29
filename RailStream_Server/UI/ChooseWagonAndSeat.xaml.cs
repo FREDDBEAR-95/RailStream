@@ -123,7 +123,7 @@ namespace RailStream_Server.UI
                 this.Close();
             }
             else
-                MessageBox.Show(serverResponse.Content, "Покупка не совершена.", MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show(JsonSerializer.Deserialize<Dictionary<string, string>>(serverResponse.Content)["Message"], "Покупка не совершена.", MessageBoxButton.OK,MessageBoxImage.Error);
         }
     }
 }
