@@ -1,4 +1,5 @@
-﻿using RailStream_Server.Models.Other;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using RailStream_Server.Models.Other;
 using RailStream_Server.Services;
 using RailStream_Server_Backend.Interfaces.Service;
 using RailStream_Server_Backend.Managers;
@@ -16,6 +17,7 @@ namespace RailStream_Server
     internal class Server
     {
         private TcpListener _server;
+
         public ServiceManager serviceManager = new ServiceManager(new List<IServiceBase> { new UserManagerService() });
         public bool ServerStatus { get; private set; } = false;
 

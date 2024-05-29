@@ -1,4 +1,5 @@
 using Microsoft.Testing.Platform.Configurations;
+using RailStream_Server;
 
 namespace RailStream_ModularTests
 {
@@ -8,6 +9,7 @@ namespace RailStream_ModularTests
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }

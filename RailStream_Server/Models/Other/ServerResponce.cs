@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models.Other
 {
-    internal class ServerMessage
+    internal class ServerResponce
     {
-        public bool Status { get; set; }
-        public string Message { get; set; }
+        public bool Status;
 
-        public ServerMessage(bool status, string message) 
+        public string? Content;
+
+        public ServerResponce(bool status, string content)
         {
             Status = status;
-            Message = message;
+            Content = content;
         }
     }
 }

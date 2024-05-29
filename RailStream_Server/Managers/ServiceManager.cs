@@ -1,4 +1,5 @@
-﻿using RailStream_Server_Backend.Interfaces.Service;
+﻿using RailStream_Server.Services;
+using RailStream_Server_Backend.Interfaces.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,12 +30,12 @@ namespace RailStream_Server_Backend.Managers
 
         public void StartServices()
         {
-            foreach (var service in Services)
-            {
-                Thread thread = new Thread(service.Start);
-                Threads.Add(thread);
-                thread.Start();
-            }
+            //foreach (var service in Services)
+            //{
+            //    Thread thread = new Thread(service.Start);
+            //    Threads.Add(thread);
+            //    thread.Start();
+            //}
         }
 
         public void StopServices()

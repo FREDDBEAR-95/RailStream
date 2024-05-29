@@ -16,6 +16,7 @@ namespace RailStream_Server.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AuthorizationId { get; set; }
         // --------------------------------------------------
+        public string? SessionUID { get; set; }
         public IPAddress Address { get; set; }
         public string DeviceName { get; set; }
         // --------------------------------------------------

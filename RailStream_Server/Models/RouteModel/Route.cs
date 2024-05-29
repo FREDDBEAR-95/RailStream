@@ -19,12 +19,16 @@ namespace RailStream_Server.Models
         public int RouteStatusId { get; set; }        // внешний ключ
         public RouteStatus? RouteStatus { get; set; } // навигационное свойство
         // ------------------------------------------------------
+        public int TrainId { get; set; }  // внешний ключ
+        public Train? Train { get; set; } // навигационное свойство
+        // ------------------------------------------------------
         public string DeparturePlace { get; set; }
         public string Destination { get; set; }
         public DateTime DepartureDate { get; set; }
-        public DateTime DepartureTime { get; set; }
-        public DateTime ArrivalTime { get; set; }
+        public TimeOnly DepartureTime { get; set; }
+        public DateTime ArrivalDate { get; set; }
+        public TimeOnly ArrivalTime { get; set; }
         public decimal Distance { get; set; }
-        public DateTime TimeWays { get; set; }
+        public TimeOnly TimeWays { get; set; }
     }
 }

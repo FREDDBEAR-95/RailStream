@@ -12,10 +12,10 @@ namespace RailStream_Server_Backend.Interfaces.Service
     {
         public StatusService Status { get; private protected set; }
 
-        void LoginUser(TcpClient client, ClientRequest request);
+        public ServerResponce LoginUser(ClientRequest request);
 
-        public void LogOutUser(TcpClient client);
+        public ServerResponce LogOutUser(ClientRequest request);
 
-        public void SingUpUser(TcpClient client, ClientRequest request);
+        public ServerResponce SingUpUser(ClientRequest request);
     }
 }

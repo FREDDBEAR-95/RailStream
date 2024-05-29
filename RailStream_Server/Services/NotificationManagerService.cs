@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RailStream_Server.Models;
+using RailStream_Server.Models.Other;
+using RailStream_Server.Models.UserModel;
 
 namespace RailStream_Server.Services
 {
@@ -24,20 +26,44 @@ namespace RailStream_Server.Services
 
         }
 
-        // Функция добавления уведомления
-        public void AddNotification(User user)
+        // Метод возвращающая не прочитанные уведомления
+        public ServerResponce CheckNotification(ClientRequest clientRequest)
+        {
+            return new ServerResponce(true, "");
+        }
+
+        // Метод отмечающий уведомление как прочитанное в БД.
+        public void MarkNotificationAsRead(ClientRequest clientRequest)
         {
 
         }
 
-        // Функция изменения уведомления
-        public void ChangeNotification(User user)
+        // Метод планирования отправки уведомления
+        public void ScheduleNotification(Notification notification, DateTime time)
         {
 
         }
 
-        // Функция удаления уведомления
-        public void RemoveNotification(User user)
+        // Метод получения истории уведомлений
+        public ServerResponce GetNotificationHistory(ClientRequest clientRequest)
+        {
+            return new ServerResponce(true, "");
+        }
+
+        // Метод добавления уведомления
+        public void AddNotification(Notification notification)
+        {
+
+        }
+
+        // Метод изменения уведомления
+        public void ChangeNotification(Notification notification)
+        {
+
+        }
+
+        // Метод удаления уведомления
+        public void RemoveNotification(Notification notification)
         {
 
         }

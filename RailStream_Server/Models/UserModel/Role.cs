@@ -15,7 +15,7 @@ namespace RailStream_Server.Models
         public int RoleId { get; set; }
         // --------------------------------------------------
         public string RoleTitle { get; set; }
-        public string RoleDescription { get; set; }
+        public string? RoleDescription { get; set; }
         public IList<string> Sections { get; set; }
     }
 }

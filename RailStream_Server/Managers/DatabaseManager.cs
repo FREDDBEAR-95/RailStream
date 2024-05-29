@@ -14,7 +14,7 @@ namespace RailStream_Server_Backend.Managers
 {
     internal class DatabaseManager : DbContext
     {
-        public string configPath = @"Configs\\DatabaseConfig.json";
+        public string ConfigPath;
 
         // Регистрация моделей
         public DbSet<User> Users { get; set; } = null!;
@@ -32,6 +32,10 @@ namespace RailStream_Server_Backend.Managers
         public DbSet<Notification> Notification { get; set; } = null!;
         public DbSet<NotificationStatus> NotificationStatus { get; set; } = null!;
 
+        public DatabaseManager(string configPath) { 
+            ConfigPath = configPath;
+        }
+
         public static IConfiguration GetDatabaseConfig(string path)
         {
             var builder = new ConfigurationBuilder();
@@ -43,7 +47,13 @@ namespace RailStream_Server_Backend.Managers
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(GetDatabaseConfig(configPath).GetConnectionString("DefaultConnection") ?? "");
+            optionsBuilder.UseSqlServer(GetDatabaseConfig(ConfigPath).GetConnectionString("DefaultConnection") ?? "");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Route>().Property(r => r.Distance)
+                .HasColumnType("decimal(10, 2)");
         }
     }
 }

@@ -30,14 +30,8 @@ namespace RailStream_Server.Services
         }
 
         // Функция удаления билета
-        public void RemoveTicket() 
-        { 
-
-        }
-
-        // Функция изменения билета
-        public void UpdateTicket() 
-        { 
+        public void RemoveTicket()
+        {
 
         }
 
