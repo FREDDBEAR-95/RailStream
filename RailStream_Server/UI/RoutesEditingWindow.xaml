@@ -1,0 +1,67 @@
+﻿<Window x:Class="RailStream_Server.RoutesEditingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RailStream_Server"
+        mc:Ignorable="d"
+        Title="Список маршрутов" Height="500" Width="1100" IsVisibleChanged="Page_IsVisibleChanged">
+    <Grid>
+        <!-- Разметка страницы -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+
+        <!-- Меню навигации -->
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="145"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="/Content/RzhdLogo.jpg" Width="auto"/>
+            <Button Grid.Column="1" Content="Маршруты" Name="RoutesBtn" Click="RoutesBtn_Click" Margin="5 0 0 0" Style="{StaticResource NavigationsButtons}"/>
+            <Button Grid.Column="2" Content="Пользователи" Name="UsersBtn" Click="UsersBtn_Click" Style="{StaticResource NavigationsButtons}"/>
+            <Button Grid.Column="3" Content="Билеты" Name="TicketsBtn" Click="TicketsBtn_Click" Style="{StaticResource NavigationsButtons}"/>
+            <Button Grid.Column="4" Content="Поезда" Name="TrainsBtn" Click="TrainsBtn_Click" Style="{StaticResource NavigationsButtons}"/>
+            <Button Grid.Column="5" Content="Вагоны" Name="WagonsBtn" Click="WagonsBtn_Click" Style="{StaticResource NavigationsButtons}"/>
+        </Grid>
+
+        <!-- Элемент DataGrid -->
+        <DataGrid Grid.Row="1" x:Name="GridRoutes" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column">
+
+            <!-- Вывод данных -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding RouteId}" Width="5*"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding RouteStatus.Status}" Width="8*"/>
+                <DataGridTextColumn Header="Место отправления" Binding="{Binding DeparturePlace}" Width="12*"/>
+                <DataGridTextColumn Header="Место прибытия" Binding="{Binding Destination}" Width="12*"/>
+                <DataGridTextColumn Header="Дата отправления" Binding="{Binding DepartureDate}" Width="12*"/>
+                <DataGridTextColumn Header="Время отправления" Binding="{Binding DepartureTime}" Width="12*"/>
+                <DataGridTextColumn Header="Дата прибытия" Binding="{Binding ArrivalDate}" Width="12*"/>
+                <DataGridTextColumn Header="Время прибытия" Binding="{Binding ArrivalTime}" Width="12*"/>
+
+                <!-- Кнопка для редактирования -->
+                <DataGridTemplateColumn Width="15*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click" Tag="{Binding}" Style="{StaticResource EditButtons}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            
+        </DataGrid>
+
+        <!-- Кнопки "Добавить" и "Удалить" -->
+        <Button Grid.Row="2" HorizontalAlignment="Left" Margin="20 0 0 0" Content="Добавить" Name="BtnAdd" Click="BtnAdd_Click" Style="{StaticResource MainButtons}"/>
+        <Button Grid.Row="2" HorizontalAlignment="Right" Margin="0 0 20 0" Content="Удалить" Name="BtnDelete" Click="BtnDelete_Click" Style="{StaticResource MainButtons}"/>
+    </Grid>
+</Window>
