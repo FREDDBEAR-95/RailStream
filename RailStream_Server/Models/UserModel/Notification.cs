@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models.UserModel
 {
-    internal class Notification
+    public class Notification
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

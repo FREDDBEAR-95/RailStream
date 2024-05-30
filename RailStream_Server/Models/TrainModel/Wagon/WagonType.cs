@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class WagonType
+    public class WagonType
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int WagonTypeId { get; set; }
         // ------------------------------------------------------
         public string Type { get; set; }

@@ -8,17 +8,20 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class Wagon
+    public class Wagon
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public string WagonNumber { get; set; }
+
         // ------------------------------------------------------
         public int TrainId { get; set; }  // внешний ключ
         public Train? Train { get; set; } // навигационное свойство
         // ------------------------------------------------------
         public int WagonTypeId { get; set; }      // внешний ключ
         public WagonType? WagonType { get; set; } // навигационное свойство
+        public ICollection<Ticket> Tickets { get; set; }
         // ------------------------------------------------------
         public int? SeatsNumber { get; set; }
     }

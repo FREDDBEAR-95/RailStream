@@ -12,9 +12,19 @@ using RailStream_Server.Models.UserModel;
 
 namespace RailStream_Server_Backend.Managers
 {
-    internal class DatabaseManager : DbContext
+    public class DatabaseManager : DbContext
     {
         public string configPath = @"Configs\\DatabaseConfig.json";
+
+        // Конструктор по умолчанию
+        public DatabaseManager()
+        {
+        }
+
+        // Конструктор, принимающий DbContextOptions<DatabaseManager>
+        public DatabaseManager(DbContextOptions<DatabaseManager> options) : base(options)
+        {
+        }
 
         // Регистрация моделей
         public DbSet<User> Users { get; set; } = null!;
@@ -45,5 +55,12 @@ namespace RailStream_Server_Backend.Managers
         {
             optionsBuilder.UseSqlServer(GetDatabaseConfig(configPath).GetConnectionString("DefaultConnection") ?? "");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Ticket>().HasOne(t => t.Wagon).WithMany(w => w.Tickets).HasForeignKey(t => t.WagonId).OnDelete(DeleteBehavior.Restrict);
+
+        }
+
     }
 }

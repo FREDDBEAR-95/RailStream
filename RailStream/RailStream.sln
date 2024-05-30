@@ -1,13 +1,12 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34526.213
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RailStream_Server", "..\RailStream_Server\RailStream_Server.csproj", "{B3100F83-92A3-4FBB-A5C9-6C7EA2FFA048}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailStream_Client", "..\RailStream_Client\RailStream_Client.csproj", "{7404FFFA-26D5-4588-A2DB-92465EEF5F42}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RailStream_UnitTests", "..\RailStream_ModularTests\RailStream_UnitTests.csproj", "{E584F333-CBF9-4973-AE18-70CD0F8AC764}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailStream_Server", "..\RailStream_Server\RailStream_Server.csproj", "{B3100F83-92A3-4FBB-A5C9-6C7EA2FFA048}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RailStream_UnitTests", "..\RailStream_ModularTests\RailStream_UnitTests.csproj", "{1489B2BB-97E8-432C-BC0D-E740E5DAA61A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +14,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7404FFFA-26D5-4588-A2DB-92465EEF5F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7404FFFA-26D5-4588-A2DB-92465EEF5F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7404FFFA-26D5-4588-A2DB-92465EEF5F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7404FFFA-26D5-4588-A2DB-92465EEF5F42}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E584F333-CBF9-4973-AE18-70CD0F8AC764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E584F333-CBF9-4973-AE18-70CD0F8AC764}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E584F333-CBF9-4973-AE18-70CD0F8AC764}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E584F333-CBF9-4973-AE18-70CD0F8AC764}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B3100F83-92A3-4FBB-A5C9-6C7EA2FFA048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B3100F83-92A3-4FBB-A5C9-6C7EA2FFA048}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3100F83-92A3-4FBB-A5C9-6C7EA2FFA048}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3100F83-92A3-4FBB-A5C9-6C7EA2FFA048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7404FFFA-26D5-4588-A2DB-92465EEF5F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7404FFFA-26D5-4588-A2DB-92465EEF5F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7404FFFA-26D5-4588-A2DB-92465EEF5F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7404FFFA-26D5-4588-A2DB-92465EEF5F42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1489B2BB-97E8-432C-BC0D-E740E5DAA61A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1489B2BB-97E8-432C-BC0D-E740E5DAA61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1489B2BB-97E8-432C-BC0D-E740E5DAA61A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1489B2BB-97E8-432C-BC0D-E740E5DAA61A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

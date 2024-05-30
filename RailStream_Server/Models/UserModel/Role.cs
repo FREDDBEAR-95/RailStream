@@ -8,14 +8,11 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class Role
+    public class Role
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RoleId { get; set; }
         // --------------------------------------------------
         public string RoleTitle { get; set; }
-        public string RoleDescription { get; set; }
-        public IList<string> Sections { get; set; }
     }
 }

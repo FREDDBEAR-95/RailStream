@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class Train
+    public class Train
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,8 +20,11 @@ namespace RailStream_Server.Models
         public int TrainStatusId { get; set; }        // внешний ключ
         public TrainStatus? TrainStatus { get; set; } // навигационное свойство
         // ------------------------------------------------------
+        public int RouteId { get; set; }  // внешний ключ (новое свойство)
+        public Route? Route { get; set; } // навигационное свойство (новое свойство)
+        // ------------------------------------------------------
         public string TrainBrand { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public DateOnly ReleaseDate { get; set; }
         public string Location { get; set; }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class Authorization
+    public class Authorization
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

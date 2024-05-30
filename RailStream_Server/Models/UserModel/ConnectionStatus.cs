@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models.UserModel
 {
-    internal class ConnectionStatus
+    public class ConnectionStatus
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ConnectionStatusId { get; set; }
         // --------------------------------------------------
         public string Status { get; set; }

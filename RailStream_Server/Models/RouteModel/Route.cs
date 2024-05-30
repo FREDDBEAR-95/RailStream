@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class Route
+    public class Route
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,10 +21,11 @@ namespace RailStream_Server.Models
         // ------------------------------------------------------
         public string DeparturePlace { get; set; }
         public string Destination { get; set; }
-        public DateTime DepartureDate { get; set; }
-        public DateTime DepartureTime { get; set; }
-        public DateTime ArrivalTime { get; set; }
+        public DateOnly DepartureDate { get; set; }
+        public TimeOnly DepartureTime { get; set; }
+        public DateOnly ArrivalDate { get; set; }
+        public TimeOnly ArrivalTime { get; set; }
         public decimal Distance { get; set; }
-        public DateTime TimeWays { get; set; }
+        public string TimeWays { get; set; }
     }
 }
