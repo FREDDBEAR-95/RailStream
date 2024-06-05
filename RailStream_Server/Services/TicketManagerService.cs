@@ -1,4 +1,5 @@
-﻿using RailStream_Server_Backend.Interfaces.Service;
+﻿using RailStream_Server.Models.Other;
+using RailStream_Server_Backend.Interfaces.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Services
 {
-    internal class TicketManagerService : ITicketManagerService
+    public class TicketManagerService : ITicketManagerService
     {
         public string Name { get; } = "TicketManagerService";
         public string Description { get; } = "Ticket Management Service";
@@ -23,16 +24,32 @@ namespace RailStream_Server.Services
 
         }
 
-        // Функция добавления билета
-        public void RegisterTicket() 
+        public ServerResponce GetTicket(ClientRequest request)
         {
-
+            return new ServerResponce(true, "");
         }
 
-        // Функция удаления билета
-        public void RemoveTicket()
+        public ServerResponce GetTickets(ClientRequest request)
         {
+            return new ServerResponce(true, "");
+        }
 
+        // Метод добавления маршрута
+        public ServerResponce CreateTicket(ClientRequest clientRequest)
+        {
+            return new ServerResponce(true, "");
+        }
+
+        // Метод изменения маршрута
+        public ServerResponce ChangeTicket(ClientRequest clientRequest)
+        {
+            return new ServerResponce(true, "");
+        }
+
+        // Метод удаления маршрута
+        public ServerResponce RemoveTicket(ClientRequest clientRequest)
+        {
+            return new ServerResponce(true, "");
         }
 
     }

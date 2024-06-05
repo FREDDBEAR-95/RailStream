@@ -12,9 +12,9 @@ using RailStream_Server.Models.UserModel;
 
 namespace RailStream_Server_Backend.Managers
 {
-    internal class DatabaseManager : DbContext
+    public class DatabaseManager : DbContext
     {
-        public string ConfigPath;
+        public readonly string ConfigPath;
 
         // Регистрация моделей
         public DbSet<User> Users { get; set; } = null!;
@@ -31,6 +31,11 @@ namespace RailStream_Server_Backend.Managers
         public DbSet<ConnectionStatus> ConnectionStatus { get; set; } = null!;
         public DbSet<Notification> Notification { get; set; } = null!;
         public DbSet<NotificationStatus> NotificationStatus { get; set; } = null!;
+
+        public DatabaseManager()
+        {
+            ConfigPath = @"Configs\\DatabaseConfig.json";
+        }
 
         public DatabaseManager(string configPath) { 
             ConfigPath = configPath;

@@ -9,6 +9,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UI\Fonts\**" />
+    <Compile Remove="UI\Image\**" />
+    <Compile Remove="UI\Styles\**" />
+    <EmbeddedResource Remove="UI\Fonts\**" />
+    <EmbeddedResource Remove="UI\Image\**" />
+    <EmbeddedResource Remove="UI\Styles\**" />
+    <None Remove="UI\Fonts\**" />
+    <None Remove="UI\Image\**" />
+    <None Remove="UI\Styles\**" />
+    <Page Remove="UI\Fonts\**" />
+    <Page Remove="UI\Image\**" />
+    <Page Remove="UI\Styles\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="UI\Content\RzhdLogo.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
@@ -21,10 +40,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UI\Styles\" />
-    <Folder Include="UI\Image\" />
-    <Folder Include="UI\Fonts\" />
     <Folder Include="UI\ViewModel\" />
+    <Folder Include="UI\Model\" />
+    <Folder Include="Docs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="UI\Content\RzhdLogo.jpg" />
   </ItemGroup>
 
 </Project>

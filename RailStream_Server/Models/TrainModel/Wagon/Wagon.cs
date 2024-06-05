@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class Wagon
+    public class Wagon
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

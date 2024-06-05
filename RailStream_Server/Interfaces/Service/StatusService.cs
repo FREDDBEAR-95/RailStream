@@ -6,4 +6,9 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server_Backend.Interfaces.Service
 {
+    public enum StatusService
+    {
+        Active = 1,
+        Inactive = 0
+    }
 }

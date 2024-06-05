@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models.Other
 {
-    internal class ClientRequest
+    public class ClientRequest
     {
         public Dictionary<string, string> Headers = new Dictionary<string, string>();
 

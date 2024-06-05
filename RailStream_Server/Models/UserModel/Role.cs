@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class Role
+    public class Role
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -1,0 +1,44 @@
+﻿<Window x:Class="RailStream_Client.UI.View.Schedule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RailStream_Client.UI.View"
+        mc:Ignorable="d"
+        Title="Schedule" Height="472" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="163*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Маршруты" HorizontalAlignment="Center" Margin="0,111,0,0" VerticalAlignment="Top" Height="38" Width="128"/>
+        <Button Content="Мои билеты" HorizontalAlignment="Center" Margin="0,169,0,0" VerticalAlignment="Top" Height="38" Width="128"/>
+        <Button Content="Личный кабинет" HorizontalAlignment="Center" Margin="0,224,0,0" VerticalAlignment="Top" Height="38" Width="128"/>
+        <Label Content="RailStream&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" Height="37" FontSize="20"/>
+        <Label Grid.Column="1" Content="Расписание&#xD;&#xA;" HorizontalAlignment="Left" Margin="29,18,0,0" VerticalAlignment="Top" Height="46" FontSize="30" Width="173" Padding="0,5,5,5"/>
+        <Button Content="Выйти" HorizontalAlignment="Center" Margin="0,386,0,0" VerticalAlignment="Top" Height="38" Width="128"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="29,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Height="24"/>
+        <Label Grid.Column="1" Content="Откуда" HorizontalAlignment="Left" Margin="29,78,0,0" VerticalAlignment="Top" Height="26" Padding="0,5,5,5"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="173,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Height="24"/>
+        <Label Grid.Column="1" Content="Куда" HorizontalAlignment="Left" Margin="173,78,0,0" VerticalAlignment="Top" Height="26" Padding="0,5,5,5"/>
+        <Label Grid.Column="1" Content="Когда" HorizontalAlignment="Left" Margin="319,78,0,0" VerticalAlignment="Top" Height="26" Padding="0,5,5,5"/>
+        <DatePicker Grid.Column="1" HorizontalAlignment="Left" Margin="319,104,0,0" VerticalAlignment="Top" Width="132" Height="24"/>
+        <Button Grid.Column="1" Content="Найти" HorizontalAlignment="Left" Margin="482,104,0,0" VerticalAlignment="Top" Width="114" Height="24" Background="Red" BorderBrush="#FFFF4F4F" Foreground="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <DataGrid Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="29,142,43,32" HeadersVisibility="Column" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Откуда" CanUserResize="True" MinWidth="20" Width="Auto"/>
+                <DataGridTextColumn Header="Куда" MinWidth="20"/>
+                <DataGridTextColumn Header="Дата отправления"/>
+                <DataGridTextColumn Header="Время отправления"/>
+                <DataGridTextColumn Header="Дата прибытия"/>
+                <DataGridTextColumn Header="Время прибытия" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

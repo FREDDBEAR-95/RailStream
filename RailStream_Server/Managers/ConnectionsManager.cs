@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Managers
 {
-    internal class ConnectionsManager
+    public class ConnectionsManager
     {
         private void SendResponse(TcpClient client, ServerResponce responce)
         {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class User
+    public class User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,8 +21,9 @@ namespace RailStream_Server.Models
         public string Name { get; set; }
         public string? Patronymic { get; set; }
         public DateOnly BirthDate { get; set; }
+        public string PassportId { get; set; }
         public string Email { get; set; }
-        public string? PhoneNumber { get; set; }
+        public long? PhoneNumber { get; set; }
         public string Password { get; set; }
         public string ImageUrl { get; set; }
         public bool IsBanned { get; set; } = false;

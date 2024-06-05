@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server_Backend.Interfaces.Service
 {
-    internal interface IUserManagerService : IServiceBase
+    public interface IUserManagerService : IServiceBase
     {
         public StatusService Status { get; private protected set; }
 

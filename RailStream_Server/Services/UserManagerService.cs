@@ -21,7 +21,7 @@ using BC = BCrypt.Net.BCrypt;
 
 namespace RailStream_Server.Services
 {
-    internal class UserManagerService : IUserManagerService
+    public class UserManagerService : IUserManagerService
     {
         public string Name { get; } = "UserManagerService";
         public string Description { get; } = "User Management Service";
@@ -75,7 +75,7 @@ namespace RailStream_Server.Services
 
                     var auth = new Authorization
                     {
-                        SessionUID = Guid.NewGuid().ToString(),
+                        SessionKey = Guid.NewGuid().ToString(),
                         Address = IPAddress.Parse(data["Address"]),
                         DeviceName = data["DeviceName"],
                         UserId = user.UserId,
@@ -88,7 +88,7 @@ namespace RailStream_Server.Services
                     databaseManager.SaveChanges();
 
                     serverResponse["Message"] = "Вы успешно авторизированы!";
-                    serverResponse["SessionKey"] = auth.SessionUID;
+                    serverResponse["SessionKey"] = auth.SessionKey;
                     return new ServerResponce(true, JsonSerializer.Serialize(serverResponse));
                 }
             }
@@ -125,7 +125,7 @@ namespace RailStream_Server.Services
                 using (DatabaseManager databaseManager = new DatabaseManager(@"Configs\\DatabaseConfig.json"))
                 {
                     // Поиск записи авторизации
-                    Authorization? auth = databaseManager.Authorizations.Where(entity => entity.SessionUID == (string)data["SessionKey"]).FirstOrDefault();
+                    Authorization? auth = databaseManager.Authorizations.Where(entity => entity.SessionKey == (string)data["SessionKey"]).FirstOrDefault();
 
                     // Проверка, что запись авторизации найдена
                     if (auth == null)

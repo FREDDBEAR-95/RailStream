@@ -14,12 +14,12 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server
 {
-    internal class Server
+    public class Server
     {
         private TcpListener _server;
 
-        public ServiceManager serviceManager = new ServiceManager(new List<IServiceBase> { new UserManagerService() });
-        public bool ServerStatus { get; private set; } = false;
+        public ServiceManager serviceManager = new ServiceManager(new List<IServiceBase> { });
+        public string ServerStatus { get; private set; } = "Выключен";
 
         public Server(IPAddress address, ushort port) {
             _server = new TcpListener(IPAddress.Any, port);
@@ -31,14 +31,14 @@ namespace RailStream_Server
 
         public ServerMessage Open()
         {
-            if (ServerStatus)
+            if (ServerStatus == "Включен")
                 return new ServerMessage(true, "The server is already up and running!");
             
             try
             {
                 _server.Start();
                 serviceManager.StartServices();
-                ServerStatus = true;
+                ServerStatus = "Включен";
                 return new ServerMessage(true, "Server successfully launched!");
             }
 
@@ -50,14 +50,14 @@ namespace RailStream_Server
 
         public ServerMessage Close() 
         {
-            if (!ServerStatus)
+            if (ServerStatus == "Выключен")
                 return new ServerMessage(true, "The server has already stopped!");
 
             try
             {
                 _server.Stop();
                 serviceManager.StopServices();
-                ServerStatus = false;
+                ServerStatus = "Выключен";
                 return new ServerMessage(true, "The server has been successfully stopped!");
             }
 
@@ -65,6 +65,6 @@ namespace RailStream_Server
             {
                 return new ServerMessage(false, $"Failed to disconnect the server. Error description: {ex.Message}");
             }
-        }
+        } 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server_Backend.Interfaces.Service
 {
-    internal interface IOrderManagerService : IServiceBase
+    public interface IRouteManagerService : IServiceBase
     {
         public StatusService Status { get; private protected set; }
     }

@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RailStream_Client
+namespace RailStream_Client.UI.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для BuyingTicket.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BuyingTicket : Window
     {
-        public MainWindow()
+        public BuyingTicket()
         {
             InitializeComponent();
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server_Backend.Interfaces.Service
 {
-    internal interface IServiceBase
+    public interface IServiceBase
     {
         public string Name { get; }
         public string Description { get; }

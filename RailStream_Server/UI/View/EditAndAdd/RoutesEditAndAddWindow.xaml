@@ -1,0 +1,55 @@
+﻿<Window x:Class="RailStream_Server.RoutesEditAndAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RailStream_Server"
+        mc:Ignorable="d"
+        Title="Редактирование маршрута" Height="450" Width="525">
+    <Grid>
+        <!-- Разметка страницы -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="185"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <!-- Текстовые блоки -->
+        <TextBlock Text="Место отправления" Style="{StaticResource TextBlocksForm}"/>
+        <TextBlock Text="Место прибытия" Grid.Row="1" Style="{StaticResource TextBlocksForm}"/>
+        <TextBlock Text="Статус" Grid.Row="2" Style="{StaticResource TextBlocksForm}"/>
+        <TextBlock Text="Дата отправления" Grid.Row="3" Style="{StaticResource TextBlocksForm}"/>
+        <TextBlock Text="Время отправления" Grid.Row="4" Style="{StaticResource TextBlocksForm}"/>
+        <TextBlock Text="Дата прибытия" Grid.Row="5" Style="{StaticResource TextBlocksForm}"/>
+        <TextBlock Text="Время прибытия" Grid.Row="6" Style="{StaticResource TextBlocksForm}"/>
+        <TextBlock Text="Расстояние (км)" Grid.Row="7" Style="{StaticResource TextBlocksForm}"/>
+        <TextBlock Text="Время в пути" Grid.Row="8" Style="{StaticResource TextBlocksForm}"/>
+
+        <!-- Элементы для ввода -->
+        <TextBox x:Name="DprtPlace" Grid.Column="1" Grid.Row="0"/>
+        <TextBox x:Name="Dstn" Grid.Column="1" Grid.Row="1"/>
+        <ComboBox x:Name="ComboStatus" Grid.Column="1" Grid.Row="2" DisplayMemberPath="Status"/>
+        <DatePicker x:Name="DprtDate" Grid.Column="1" Grid.Row="3"/>
+        <TextBox x:Name="DprtTime" Grid.Column="1" Grid.Row="4"/>
+        <DatePicker x:Name="ArrDate" Grid.Column="1" Grid.Row="5"/>
+        <TextBox x:Name="ArrTime" Grid.Column="1" Grid.Row="6"/>
+        <TextBox x:Name="Distan" Grid.Column="1" Grid.Row="7"/>
+        <TextBox x:Name="WaysTime" Grid.Column="1" Grid.Row="8"/>
+
+        <!-- Кнопки "Сохранить" и "Назад" -->
+        <Button HorizontalAlignment="Left" Content="Сохранить" Grid.Column="0" Grid.Row="10" Name="BtnSave" Click="BtnSave_Click" Margin="5" Style="{StaticResource MainButtons}"/>
+        <Button HorizontalAlignment="Right" Content="Назад" Grid.Column="1" Grid.Row="10" Name="BtnBack" Click="BtnBack_Click" Margin="5" Style="{StaticResource MainButtons}"/>
+    </Grid>
+</Window>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class Ticket
+    public class Ticket
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

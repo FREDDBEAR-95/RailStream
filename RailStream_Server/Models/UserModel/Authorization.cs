@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class Authorization
+    public class Authorization
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AuthorizationId { get; set; }
         // --------------------------------------------------
-        public string? SessionUID { get; set; }
+        public string? SessionKey { get; set; }
         public IPAddress Address { get; set; }
         public string DeviceName { get; set; }
         // --------------------------------------------------

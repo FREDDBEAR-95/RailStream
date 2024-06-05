@@ -9,15 +9,12 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server_Backend.Interfaces.Service
 {
-    internal interface INotificationManagerService : IServiceBase
+    public interface INotificationManagerService : IServiceBase
     {
         public StatusService Status { get; private protected set; }
 
-        public void AddNotification(Notification notification);
-        public void ChangeNotification(Notification notification);
-        public void RemoveNotification(Notification notification);
-
-        public ServerResponce CheckNotification(ClientRequest clientRequest);
-        public void MarkNotificationAsRead(ClientRequest clientRequest);
+        public ServerResponce CreateNotification(ClientRequest clientRequest);
+        public ServerResponce ChangeNotification(ClientRequest clientRequest);
+        public ServerResponce RemoveNotification(ClientRequest clientRequest);
     }
 }

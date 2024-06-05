@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models.Other
 {
-    internal class ServerResponce
+    public class ServerResponce
     {
         public bool Status;
 

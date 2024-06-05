@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server_Backend.Managers
 {
-    internal class ServiceManager
+    public class ServiceManager
     {
         private IList<IServiceBase> Services { get; set; }
         private IList<Thread> Threads { get; } = new List<Thread>();

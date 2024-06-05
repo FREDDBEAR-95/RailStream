@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RailStream_Server.Models
 {
-    internal class TrainStatus
+    public class TrainStatus
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
