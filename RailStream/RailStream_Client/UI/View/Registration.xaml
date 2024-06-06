@@ -31,7 +31,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,417,0,0" VerticalAlignment="Top" Width="94" Height="22" Background="#FF0084FF" Foreground="White" BorderBrush="#FFACE6FF" ClickMode="Hover" FontSize="9">
+        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,417,0,0" VerticalAlignment="Top" Width="94" Height="22" Background="#FF0084FF" Foreground="White" BorderBrush="#FFACE6FF" FontSize="9">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>

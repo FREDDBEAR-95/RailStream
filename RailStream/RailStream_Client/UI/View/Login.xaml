@@ -7,25 +7,25 @@
         mc:Ignorable="d"
         Title="Login" Height="379" Width="258">
     <Grid>
-        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" Width="182" Height="32" Click="Button_Click" Background="Red" FontSize="14" Foreground="White" BorderBrush="#FFFF4F4F">
+        <Button x:Name="LogInBtn" Content="Войти" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" Width="182" Height="32" Background="Red" FontSize="14" Foreground="White" BorderBrush="#FFFF4F4F" Click="LogInBtn_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="3"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Height="28" RenderTransformOrigin="0.511,-0.641" Margin="0,169,0,0" Padding="5,5,0,0"/>
-        <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Height="28" RenderTransformOrigin="0.511,-0.641" Margin="0,103,0,0" Padding="5,5,0,0"/>
+        <TextBox x:Name="LoginBox" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Height="28" RenderTransformOrigin="0.511,-0.641" Margin="0,103,0,0" Padding="5,5,5,5"/>
         <Label Content="Логин" HorizontalAlignment="Left" Margin="32,82,0,0" VerticalAlignment="Top" Width="38" Height="16" Padding="0,0,0,0"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="32,148,0,0" VerticalAlignment="Top" Width="46" Height="16" Padding="0,0,0,0"/>
         <Label Content="Вход" HorizontalAlignment="Center" Margin="0,22,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Button Content="Регистрация" HorizontalAlignment="Center" Margin="0,282,0,0" VerticalAlignment="Top" Width="94" Height="22" Background="#FF0084FF" Foreground="White" BorderBrush="#FFACE6FF" ClickMode="Hover" FontSize="9">
+        <Button x:Name="SingUpBtn" Content="Регистрация" HorizontalAlignment="Center" Margin="0,282,0,0" VerticalAlignment="Top" Width="94" Height="22" Background="#FF0084FF" Foreground="White" BorderBrush="#FFACE6FF" FontSize="9" Click="SingUpBtn_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="3"/>
                 </Style>
             </Button.Resources>
         </Button>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="182" Height="28" Margin="0,169,0,0" Padding="5,5,5,5"/>
 
     </Grid>
 </Window>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NLog;
+using NLog.Config;
+using NLog.Targets;
+using System.Net.Sockets;
+using RailStream_Server.Services;
 
 namespace RailStream_Server.UI.View
 {
@@ -20,14 +27,14 @@ namespace RailStream_Server.UI.View
     public partial class ServerControlPanel : Window
     {
         Server RailStreamServer;
-        List<string> Logs = new List<string>();
 
         public ServerControlPanel()
         {
             RailStreamServer = new Server(8080);
             InitializeComponent();
-            LogsServer.ItemsSource = Logs;
             StatusServer.Content = RailStreamServer.ServerStatus;
+            RailStreamServer.serviceManager.AddService(new UserManagerService());
+            RailStreamServer.serviceManager.StartServices();
         }
 
         public ServerControlPanel(Server server)
@@ -35,6 +42,8 @@ namespace RailStream_Server.UI.View
             RailStreamServer = server;
             InitializeComponent();
             StatusServer.Content = RailStreamServer.ServerStatus;
+            RailStreamServer.serviceManager.AddService(new UserManagerService());
+            RailStreamServer.serviceManager.StartServices();
         }
 
         private void BtnRunServer_Click(object sender, RoutedEventArgs e)
@@ -58,7 +67,7 @@ namespace RailStream_Server.UI.View
 
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
-            Logs.Clear();
+
         }
     }
 }

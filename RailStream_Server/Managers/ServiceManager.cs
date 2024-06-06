@@ -10,7 +10,7 @@ namespace RailStream_Server_Backend.Managers
 {
     public class ServiceManager
     {
-        private IList<IServiceBase> Services { get; set; }
+        public IList<IServiceBase> Services { get; set; }
         private IList<Thread> Threads { get; } = new List<Thread>();
 
         public ServiceManager(IList<IServiceBase> services)
@@ -30,12 +30,12 @@ namespace RailStream_Server_Backend.Managers
 
         public void StartServices()
         {
-            //foreach (var service in Services)
-            //{
-            //    Thread thread = new Thread(service.Start);
-            //    Threads.Add(thread);
-            //    thread.Start();
-            //}
+            foreach (var service in Services)
+            {
+                Thread thread = new Thread(service.Start);
+                Threads.Add(thread);
+                thread.Start();
+            }
         }
 
         public void StopServices()

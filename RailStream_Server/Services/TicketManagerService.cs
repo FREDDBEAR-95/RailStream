@@ -52,5 +52,13 @@ namespace RailStream_Server.Services
             return new ServerResponce(true, "");
         }
 
+        public ServerResponce Command(string command, ClientRequest request)
+        {
+            switch (command)
+            {
+                default:
+                    return new ServerResponce(false, "Не известная команда!");
+            }
+        }
     }
 }

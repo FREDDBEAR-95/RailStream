@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RailStream_Server.Models.Other;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,7 @@ namespace RailStream_Server_Backend.Interfaces.Service
 
         public void Start();
         public void Stop();
+
+        public ServerResponce Command(string command, ClientRequest request);
     }
 }

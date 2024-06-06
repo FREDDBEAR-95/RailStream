@@ -34,14 +34,6 @@ namespace RailStream_Server.Services
 
         #region ServiceMethods
 
-        public ServerResponce GetRoute(ClientRequest request)
-        {
-            Dictionary<string, object> serverResponse = new Dictionary<string, object>();
-
-
-            return new ServerResponce(true, "");
-        }
-
         public ServerResponce GetRoutes(ClientRequest request)
         {
             Dictionary<string, object> serverResponse = new Dictionary<string, object>();
@@ -263,5 +255,14 @@ namespace RailStream_Server.Services
         }
 
         #endregion
+
+        public ServerResponce Command(string command, ClientRequest request)
+        {
+            switch (command)
+            {
+                default:
+                    return new ServerResponce(false, "Не известная команда!");
+            }
+        }
     }
 }

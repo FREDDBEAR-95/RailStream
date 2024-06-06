@@ -18,6 +18,7 @@ using System.Windows.Forms;
 using Authorization = RailStream_Server.Models.Authorization;
 using User = RailStream_Server.Models.User;
 using BC = BCrypt.Net.BCrypt;
+using NLog.Time;
 
 namespace RailStream_Server.Services
 {
@@ -72,6 +73,8 @@ namespace RailStream_Server.Services
                         serverResponse["Message"] = "Ошибка авторизации! Неправильный логин или пароль.";
                         return new ServerResponce(false, JsonSerializer.Serialize(serverResponse));
                     }
+
+                    MessageBox.Show(string.Join(Environment.NewLine, data));
 
                     var auth = new Authorization
                     {
@@ -193,6 +196,24 @@ namespace RailStream_Server.Services
             {
                 serverResponse["Message"] = $"Ошибка регистрации! Проверьте корректность введенных данных или попробуйте зарегистрироваться позднее. Текст ошибки: {e.Message}";
                 return new ServerResponce(false, JsonSerializer.Serialize(serverResponse));
+            }
+        }
+
+        public ServerResponce Command(string command, ClientRequest request) 
+        {
+            switch (command)
+            {
+                case "LogIn":
+                    return LoginUser(request);
+
+                case "LogOut":
+                    return LogOutUser(request);
+
+                case "SingUp":
+                    return SingUpUser(request);
+
+                default:
+                    return new ServerResponce(false, "Не известная команда!");
             }
         }
     }

@@ -377,5 +377,14 @@ namespace RailStream_Server.Services
         }
 
         #endregion
+
+        public ServerResponce Command(string command, ClientRequest request)
+        {
+            switch (command)
+            {
+                default:
+                    return new ServerResponce(false, "Не известная команда!");
+            }
+        }
     }
 }
